@@ -1,23 +1,64 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'vue-router'
+
+const email = ref('')
+const password = ref('')
+const errorMessage = ref('')
+const router = useRouter()
+
+const login = () => {
+  signInWithEmailAndPassword(getAuth(), email.value, password.value)
+    .then(() => {
+      console.log('welcome back!')
+      router.push('/')
+    })
+    .catch((error) => {
+      console.log(error.code)
+      alert(error.message)
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errorMessage.value = 'Invalid email.'
+          break
+        case 'auth/user-not-found':
+          errorMessage.value = 'User not found.'
+          break
+        case 'auth/wrong-password':
+          errorMessage.value = 'Wrong password.'
+          break
+        default:
+          errorMessage.value = 'Email or password was incorrect.'
+      }
+    })
+}
+</script>
 
 <template>
   <div class="container mt-32 w-96 text-center">
     <h2 class="mb-8 text-4xl font-bold">Welcome back</h2>
-    <form action="" class="mb-4 w-auto space-y-2">
+    <div class="mb-4 w-auto space-y-2">
       <input
+        v-model="email"
         class="w-full rounded border px-3 py-2 shadow-inner"
         type="email"
         placeholder="email"
       />
       <input
+        v-model="password"
         class="w-full rounded border px-3 py-2 shadow-inner"
         type="password"
         placeholder="password"
       />
-      <button class="w-full rounded bg-gray-800 px-3 py-2 text-white hover:bg-gray-600">
+      <button
+        type="submit"
+        @click.stop="login"
+        class="w-full rounded bg-gray-800 px-3 py-2 text-white hover:bg-gray-600"
+      >
         Sign in
       </button>
-    </form>
+    </div>
+    <p v-if="errorMessage">{{ errorMessage }}</p>
     <p class="my-6 font-extralight">or</p>
     <button
       type="button"
