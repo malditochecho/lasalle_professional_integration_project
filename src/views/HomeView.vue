@@ -2,8 +2,9 @@
 
 <template>
   <div class="container">
-    <img class="mb-20" src="@/assets/img/hero.jpg" alt="hero-poster" />
-    <div class="mb-20">
+    <img src="@/assets/img/hero.jpg" alt="hero-poster" />
+    <div>
+      <div class="mb-8 mt-12 border-b"></div>
       <h2 class="mb-4 text-4xl font-bold">Now in theaters</h2>
       <div class="grid grid-cols-5 gap-5">
         <img src="@/assets/img/nr_1.jpg" alt="" />
@@ -13,7 +14,8 @@
         <img src="@/assets/img/nr_5.jpg" alt="" />
       </div>
     </div>
-    <div class="mb-8">
+    <div class="mb-8 mt-12 border-b"></div>
+    <div>
       <h2 class="mb-4 text-4xl font-bold">Upcoming movies</h2>
       <div class="grid grid-cols-5 gap-5">
         <img src="@/assets/img/nr_1.jpg" alt="" />
