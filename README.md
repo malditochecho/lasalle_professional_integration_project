@@ -33,3 +33,39 @@ yarn build
 ```sh
 yarn lint
 ```
+
+## Git naming convention
+
+### Branches
+
+source: https://dev.to/suprabhasupi/github-branch-naming-convention-2d4n
+
+E.g.:
+
+`feature/20231001-signup`
+
+`feature/20231003-movie-crud`
+
+`bugfix/20231002-title-alignment`
+
+`bugfix/20231002-movie-cover-size`
+
+### Commits
+
+source: https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
+
+E.g.:
+
+`feat: implementation of the navbar`
+
+`fix: border radius was incorrect`
+
+`docs: update readme.MD`
+
+`style: add space between cover and title`
+
+`refactor: simpliflying the api call`
+
+`perf: improving the movie search`
+
+`test: `
