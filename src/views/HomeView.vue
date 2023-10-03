@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container min-h-screen">
+  <div class="container">
     <img class="mb-20" src="@/assets/img/hero.jpg" alt="hero-poster" />
     <div class="mb-20">
       <h2 class="mb-4 text-4xl font-bold">Now in theaters</h2>

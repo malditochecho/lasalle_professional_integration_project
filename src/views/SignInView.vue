@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container mt-64 w-96 text-center">
+  <div class="container mt-32 w-96 text-center">
     <h2 class="mb-8 text-4xl font-bold">Welcome back</h2>
     <form action="" class="mb-4 w-auto space-y-2">
       <input

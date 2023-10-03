@@ -5,11 +5,13 @@ import TheFooter from './components/TheFooter.vue'
 </script>
 
 <template>
-  <TheHeader />
-  <main>
-    <RouterView />
-  </main>
-  <TheFooter />
+  <div class="flex min-h-screen flex-col">
+    <TheHeader />
+    <main class="flex-grow">
+      <RouterView />
+    </main>
+    <TheFooter />
+  </div>
 </template>
 
 <style scoped></style>
