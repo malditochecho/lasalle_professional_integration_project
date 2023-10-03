@@ -38,7 +38,10 @@ yarn lint
 
 ### Branches
 
-source: https://dev.to/suprabhasupi/github-branch-naming-convention-2d4n
+source:
+
+- https://dev.to/suprabhasupi/github-branch-naming-convention-2d4n
+- https://www.conventionalcommits.org/en/v1.0.0/
 
 E.g.:
 
@@ -52,7 +55,10 @@ E.g.:
 
 ### Commits
 
-source: https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
+source:
+
+- https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
+- https://www.conventionalcommits.org/en/v1.0.0/
 
 E.g.:
 
