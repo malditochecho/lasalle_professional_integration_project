@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 const authStore = useAuthStore()
 
 // data
-const email = ref('sergrodrig@gmail.com')
+const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()

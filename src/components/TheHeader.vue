@@ -28,11 +28,15 @@ const isLoggedIn = computed(() => authStore.userIsLoggedIn) // to switch between
       <nav class="flex items-center justify-center space-x-4">
         <div
           v-if="isLoggedIn"
-          class="rounded-full border-4 border-gray-500 bg-blue-300 object-cover text-center"
+          class="rounded-full border-0 border-gray-500 bg-blue-300 object-cover text-center"
         >
           <RouterLink to="/profile">
-            <img v-if="isLoggedIn" :src="authStore.user.photoURL" class="w-12 rounded-full" />
-            <span v-else class="text-6xl">🦸</span>
+            <img
+              v-if="isLoggedIn && authStore.user.photoURL"
+              :src="authStore.user.photoURL"
+              class="w-12 rounded-full"
+            />
+            <span v-else class="text-6xl">📀</span>
           </RouterLink>
         </div>
         <div class="flex items-center justify-center" v-if="!isLoggedIn">
