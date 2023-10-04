@@ -1,10 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
 const username = ref('')
-const email = ref('')
+const email = ref('sergrodrig@gmail.com')
 const password = ref('')
 const router = useRouter()
 
@@ -16,10 +21,17 @@ const register = () => {
       alert(error.message)
     })
 }
+
+const registerWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider).then(() => {
+    router.push('/')
+  })
+}
 </script>
 
 <template>
-  <div class="container mt-32 w-96 text-center">
+  <main class="container mt-32 w-96 text-center">
     <h2 class="mb-4 text-4xl font-bold">Welcome</h2>
     <div class="mb-4 w-auto space-y-2">
       <input
@@ -50,6 +62,7 @@ const register = () => {
     </div>
     <p class="my-6 font-extralight">or</p>
     <button
+      @click.stop="registerWithGoogle"
       type="button"
       class="dark:focus:ring-[#4285F4]/55 mb-2 mr-2 inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:ring-4 focus:ring-[#4285F4]/50"
     >
@@ -75,7 +88,7 @@ const register = () => {
     <span class="font-medium text-blue-500 underline">
       <RouterLink to="/signin"> Sign in </RouterLink>
     </span>
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped></style>

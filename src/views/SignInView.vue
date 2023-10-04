@@ -1,9 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
-const email = ref('')
+const email = ref('sergrodrig@gmail.com')
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
@@ -32,10 +37,19 @@ const login = () => {
       }
     })
 }
+
+const loginWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider).then((result) => {
+    const user = result.user
+    console.log(user)
+    router.push('/')
+  })
+}
 </script>
 
 <template>
-  <div class="container mt-32 w-96 text-center">
+  <main class="container mt-32 w-96 text-center">
     <h2 class="mb-8 text-4xl font-bold">Welcome back</h2>
     <div class="mb-4 w-auto space-y-2">
       <input
@@ -61,6 +75,7 @@ const login = () => {
     <p v-if="errorMessage">{{ errorMessage }}</p>
     <p class="my-6 font-extralight">or</p>
     <button
+      @click.stop="loginWithGoogle"
       type="button"
       class="dark:focus:ring-[#4285F4]/55 mb-2 mr-2 inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:ring-4 focus:ring-[#4285F4]/50"
     >
@@ -86,7 +101,7 @@ const login = () => {
     <span class="font-medium text-blue-500 underline">
       <RouterLink to="/signup"> Sign Up </RouterLink>
     </span>
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped></style>
