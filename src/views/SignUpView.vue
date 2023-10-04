@@ -7,7 +7,6 @@ import { useRouter } from 'vue-router'
 const authStore = useAuthStore()
 
 // data
-const username = ref('')
 const email = ref('sergrodrig@gmail.com')
 const password = ref('')
 const router = useRouter()
@@ -24,15 +23,9 @@ const registerWithEmailAndPassword = async () => {
 </script>
 
 <template>
-  <main class="container mt-32 w-96 text-center">
+  <main class="container mt-8 w-96 px-8 text-center">
     <h2 class="mb-4 text-4xl font-bold">Welcome</h2>
     <div class="mb-4 w-auto space-y-2">
-      <input
-        v-model="username"
-        class="w-full rounded border px-3 py-2 shadow-inner"
-        type="text"
-        placeholder="username"
-      />
       <input
         v-model="email"
         class="w-full rounded border px-3 py-2 shadow-inner"

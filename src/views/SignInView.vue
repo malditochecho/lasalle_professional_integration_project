@@ -58,7 +58,7 @@ const loginWithEmailAndPassword = async () => {
 </script>
 
 <template>
-  <main class="container mt-32 w-96 text-center">
+  <main class="container mt-8 w-96 px-8 text-center">
     <h2 class="mb-8 text-4xl font-bold">Welcome back</h2>
     <div class="mb-4 w-auto space-y-2">
       <input

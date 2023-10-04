@@ -20,7 +20,7 @@ const isLoggedIn = computed(() => authStore.userIsLoggedIn) // to switch between
 </script>
 
 <template>
-  <div class="mb-8 w-full border-b">
+  <div class="w-full border-b">
     <header class="container my-4 flex items-center justify-between">
       <RouterLink to="/">
         <p class="text-6xl">🎬</p>
