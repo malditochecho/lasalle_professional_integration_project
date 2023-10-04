@@ -1,51 +1,60 @@
 <script setup>
 import { ref } from 'vue'
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup
-} from 'firebase/auth'
+import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
+// pinia
+const authStore = useAuthStore()
+
+// data
 const email = ref('sergrodrig@gmail.com')
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
 
-const login = () => {
-  signInWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then(() => {
-      console.log('welcome back!')
-      router.push('/')
-    })
-    .catch((error) => {
-      console.log(error.code)
-      alert(error.message)
-      switch (error.code) {
-        case 'auth/invalid-email':
-          errorMessage.value = 'Invalid email.'
-          break
-        case 'auth/user-not-found':
-          errorMessage.value = 'User not found.'
-          break
-        case 'auth/wrong-password':
-          errorMessage.value = 'Wrong password.'
-          break
-        default:
-          errorMessage.value = 'Email or password was incorrect.'
-      }
-    })
+// methods
+const loginWithGoogle = async () => {
+  await authStore.authenticateWithGoogle()
+  router.push('/')
+}
+const loginWithEmailAndPassword = async () => {
+  await authStore.loginWithEmailAndPassword(email.value, password.value)
+  router.push('/')
 }
 
-const loginWithGoogle = () => {
-  const provider = new GoogleAuthProvider()
-  signInWithPopup(getAuth(), provider).then((result) => {
-    const user = result.user
-    console.log(user)
-    router.push('/')
-  })
-}
+// const loginWithEmailAndPassword = () => {
+//   signInWithEmailAndPassword(getAuth(), email.value, password.value)
+//     .then(() => {
+//       console.log('welcome back!')
+//       router.push('/')
+//     })
+//     .catch((error) => {
+//       console.log(error.code)
+//       alert(error.message)
+//       switch (error.code) {
+//         case 'auth/invalid-email':
+//           errorMessage.value = 'Invalid email.'
+//           break
+//         case 'auth/user-not-found':
+//           errorMessage.value = 'User not found.'
+//           break
+//         case 'auth/wrong-password':
+//           errorMessage.value = 'Wrong password.'
+//           break
+//         default:
+//           errorMessage.value = 'Email or password was incorrect.'
+//       }
+//     })
+// }
+
+// const loginWithGoogle = () => {
+//   const provider = new GoogleAuthProvider()
+//   signInWithPopup(getAuth(), provider).then((result) => {
+//     const user = result.user
+//     console.log(user)
+//     router.push('/')
+//   })
+// }
 </script>
 
 <template>
@@ -66,7 +75,7 @@ const loginWithGoogle = () => {
       />
       <button
         type="submit"
-        @click.stop="login"
+        @click.stop="loginWithEmailAndPassword"
         class="w-full rounded bg-gray-800 px-3 py-2 text-white hover:bg-gray-600"
       >
         Sign in

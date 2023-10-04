@@ -1,16 +1,20 @@
 <script setup>
-import { getAuth } from 'firebase/auth'
-let auth = getAuth()
+import { useAuthStore } from '@/stores/auth'
+
+// pinia
+const authStore = useAuthStore()
 </script>
 
 <template>
   <main class="container">
     <img
-      :src="auth.currentUser.photoURL"
+      :src="authStore.user.photoURL ? authStore.user.photoURL : 'null'"
       alt="google-avatar-photo"
       class="mb-8 w-32 rounded-full shadow-xl"
     />
-    <p class="mb-8 text-3xl font-bold">Hi {{ auth.currentUser.displayName }}!</p>
+    <p class="mb-8 text-3xl font-bold">
+      Hi {{ authStore.user.displayName ? authStore.user.displayName : 'empty' }}!
+    </p>
     <div class="border p-8">
       <h2 class="text-3xl font-bold">Favorite movies</h2>
       <ul>

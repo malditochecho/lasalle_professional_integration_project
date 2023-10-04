@@ -2,6 +2,17 @@
 import { RouterView } from 'vue-router'
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
+import { onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { ref } from 'vue'
+
+// pinia
+const authStore = useAuthStore()
+
+onMounted(() => {
+  const currentUser = ref(localStorage.getItem('currentUser') || null)
+  if (currentUser.value) authStore.user = JSON.parse(currentUser.value)
+})
 </script>
 
 <template>

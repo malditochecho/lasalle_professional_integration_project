@@ -1,32 +1,25 @@
 <script setup>
 import { ref } from 'vue'
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup
-} from 'firebase/auth'
+import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
+// pinia
+const authStore = useAuthStore()
+
+// data
 const username = ref('')
 const email = ref('sergrodrig@gmail.com')
 const password = ref('')
 const router = useRouter()
 
-const register = () => {
-  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then(() => router.push('/'))
-    .catch((error) => {
-      console.log(error.code)
-      alert(error.message)
-    })
+// methods
+const registerWithGoogle = async () => {
+  await authStore.authenticateWithGoogle()
+  router.push('/')
 }
-
-const registerWithGoogle = () => {
-  const provider = new GoogleAuthProvider()
-  signInWithPopup(getAuth(), provider).then(() => {
-    router.push('/')
-  })
+const registerWithEmailAndPassword = async () => {
+  await authStore.registerWithEmailAndPassword(email.value, password.value)
+  router.push('/')
 }
 </script>
 
@@ -54,7 +47,7 @@ const registerWithGoogle = () => {
       />
       <button
         type="submit"
-        @click.stop="register"
+        @click.stop="registerWithEmailAndPassword"
         class="w-full rounded bg-gray-800 px-3 py-2 text-white hover:bg-gray-600"
       >
         Create account
