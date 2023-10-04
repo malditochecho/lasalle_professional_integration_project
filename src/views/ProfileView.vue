@@ -40,19 +40,53 @@ const authStore = useAuthStore()
       <h2 class="col-span-12 mb-4 text-3xl font-bold">❤️ Favorite movies</h2>
       <ul class="grid grid-cols-12 gap-5">
         <li class="col-span-3">
-          <img src="@/assets/img/fav_1.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/fav_1.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_2.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/fav_2.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_3.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/fav_3.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_4.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/fav_4.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_5.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/fav_5.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
+        </li>
+        <li class="col-span-3">
+          <img
+            src="@/assets/img/fav_6.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
+        </li>
+        <li class="col-span-3">
+          <img
+            src="@/assets/img/fav_7.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
       </ul>
       <RouterLink to="/profile/#">
@@ -63,19 +97,25 @@ const authStore = useAuthStore()
       <h2 class="mb-4 text-3xl font-bold">👀 Watchlist</h2>
       <ul class="grid grid-cols-12 gap-5">
         <li class="col-span-3">
-          <img src="@/assets/img/fav_1.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/nr_1.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_2.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/wl_1.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
         <li class="col-span-3">
-          <img src="@/assets/img/fav_3.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
-        </li>
-        <li class="col-span-3">
-          <img src="@/assets/img/fav_4.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
-        </li>
-        <li class="col-span-3">
-          <img src="@/assets/img/fav_5.jpg" alt="movie poster" class="aspect-[2/3] h-48" />
+          <img
+            src="@/assets/img/wl_2.jpg"
+            alt="movie poster"
+            class="aspect-[2/3] h-48 object-cover"
+          />
         </li>
       </ul>
       <RouterLink to="/profile/#">

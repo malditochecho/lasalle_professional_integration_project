@@ -17,22 +17,22 @@
         <img
           src="@/assets/img/nr_1.jpg"
           alt="movie cover"
-          class="col-span-6 sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
         />
         <img
           src="@/assets/img/nr_2.jpg"
           alt="movie cover"
-          class="col-span-6 sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
         />
         <img
           src="@/assets/img/nr_3.jpg"
           alt="movie cover"
-          class="col-span-6 sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
         />
         <img
           src="@/assets/img/nr_4.jpg"
           alt="movie cover"
-          class="col-span-6 sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
         />
       </div>
     </div>
@@ -40,10 +40,21 @@
     <div class="container col-span-12">
       <h2 class="mb-4 text-4xl font-bold">Upcoming movies</h2>
       <div class="grid grid-cols-12 gap-5">
-        <img src="@/assets/img/nr_1.jpg" alt="movie cover" class="col-span-3" />
-        <img src="@/assets/img/nr_2.jpg" alt="movie cover" class="col-span-3" />
-        <img src="@/assets/img/nr_3.jpg" alt="movie cover" class="col-span-3" />
-        <img src="@/assets/img/nr_4.jpg" alt="movie cover" class="col-span-3" />
+        <img
+          src="@/assets/img/uc_1.jpg"
+          alt="movie cover"
+          class="col-span-3 aspect-[2/3] object-cover"
+        />
+        <img
+          src="@/assets/img/uc_2.jpg"
+          alt="movie cover"
+          class="col-span-3 aspect-[2/3] object-cover"
+        />
+        <img
+          src="@/assets/img/uc_3.jpg"
+          alt="movie cover"
+          class="col-span-3 aspect-[2/3] object-cover"
+        />
       </div>
     </div>
   </main>

@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <main class="container mt-8 space-y-8">
-    <div class="grid grid-cols-12 gap-5 border p-8">
+  <main class="container mt-4 space-y-8">
+    <div class="grid grid-cols-12 gap-5 border p-8 shadow-inner">
       <h2 class="col-span-12 mb-8 text-center text-3xl font-light">
         you can add the movie details manually
       </h2>
@@ -33,14 +33,14 @@
       </div>
     </div>
     <p class="my-6 text-center font-extralight">or</p>
-    <div class="grid grid-cols-12 gap-5 border p-8">
+    <div class="grid grid-cols-12 gap-5 border p-8 shadow-inner">
       <h2 class="col-span-12 mb-8 text-center text-3xl font-light">
-        you can add the movie by searching the title (easier)
+        you can add the movie by searching the title <span class="font-medium">(easier 🤩)</span>
       </h2>
       <div class="col-span-12 justify-self-center">
         <input type="text" class="w-64 border px-2 py-2" placeholder="movie title" />
         <button
-          class="w-24 cursor-pointer border border-emerald-400 bg-emerald-500 px-3 py-2 text-center text-white hover:bg-emerald-400"
+          class="w-24 cursor-pointer border border-emerald-500 bg-emerald-500 px-3 py-2 text-center text-white hover:border-emerald-400 hover:bg-emerald-400"
         >
           search
         </button>
