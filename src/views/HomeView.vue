@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <img src="@/assets/img/hero.jpg" alt="hero-poster" />
     <div>
       <div class="mb-8 mt-12 border-b"></div>
@@ -25,5 +25,5 @@
         <img src="@/assets/img/nr_5.jpg" alt="" />
       </div>
     </div>
-  </div>
+  </main>
 </template>

@@ -3,14 +3,12 @@ import { onMounted, ref } from 'vue'
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
-
 const isLoggedIn = ref(false)
 
 const signout = () => {
   signOut(getAuth()).then(() => {
-    console.log('signed out')
-    router.push('/')
+    isLoggedIn.value = false
+    useRouter().push('/')
   })
 }
 
@@ -32,7 +30,9 @@ onMounted(() => {
           v-if="isLoggedIn"
           class="rounded-full border-4 border-gray-500 bg-blue-300 object-cover text-center"
         >
-          <span class="text-6xl">🦸</span>
+          <RouterLink to="/profile">
+            <span class="text-6xl">🦸</span>
+          </RouterLink>
         </div>
         <div class="flex items-center justify-center" v-if="!isLoggedIn">
           <div>
