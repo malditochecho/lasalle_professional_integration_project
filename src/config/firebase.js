@@ -1,6 +1,5 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-// import { connectFirestoreEmulator } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -16,9 +15,5 @@ const app = initializeApp(firebaseConfig)
 
 // firebase services initialization
 const db = getFirestore(app)
-const auth = app.auth()
-
-// connect to emulator
-// connectFirestoreEmulator(db, 'localhost', 8888)
 
 export { db }
