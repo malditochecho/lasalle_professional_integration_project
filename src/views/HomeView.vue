@@ -5,9 +5,9 @@
     <div class="relative col-span-12">
       <img src="@/assets/img/hero.jpg" alt="hero-poster" class="grayscale" />
       <p
-        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-serif text-5xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] sm:text-[7rem] md:text-[7rem] lg:text-[8rem]"
+        class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 bg-gray-200 p-4 text-center text-[1.5rem] font-bold text-black mix-blend-exclusion drop-shadow-2xl sm:text-[3rem] md:text-[4rem] lg:text-[5rem]"
       >
-        hola
+        Elevate Your Movie Nights with Our Expert Recommendations!
       </p>
     </div>
     <div class="col-span-12 mb-8 mt-12 hidden border-b md:block"></div>
