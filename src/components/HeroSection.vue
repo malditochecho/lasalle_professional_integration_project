@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const text = ref('Elevate Your Movie Nights with Our Expert Recommendations!')
+const text = ref('Elevate your movie nights with our expert recommendations!')
 const image = ref('src/assets/img/hero.jpg')
 </script>
 

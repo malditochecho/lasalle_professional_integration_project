@@ -1,13 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useApi } from '@/composables/api.js'
 
+// decide what to fetch from the props
 const props = defineProps(['type'])
-
-const url = ref('')
 const sectionTitle = ref('')
-const movies = ref([])
-
-onMounted(async () => {
+const url = ref('')
+onMounted(() => {
   switch (props.type) {
     case 'upcoming':
       sectionTitle.value = 'Now in theaters'
@@ -18,23 +17,14 @@ onMounted(async () => {
       url.value = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1'
       break
   }
-  await fetchMovies()
 })
 
-const fetchMovies = async () => {
-  // TMDB > MOVIE LISTS > Now Playing
-  const bearer = `Bearer ${import.meta.env.VITE_TMDB_API_READ_ACCESS_TOKEN}`
-  const response = await fetch(url.value, {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: bearer
-    }
-  })
-  const data = await response.json()
-  const results = data?.results
-  movies.value = results
-}
+// fetch movies from api
+const movies = ref([])
+onMounted(async () => {
+  const { data, error } = await useApi(url.value)
+  error.value ? console.log(error.value) : (movies.value = data.value.results)
+})
 </script>
 
 <template>
