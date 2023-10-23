@@ -75,3 +75,21 @@ E.g.:
 `perf: improving the movie search`
 
 `test: `
+
+## Version control
+
+### Github
+
+https://github.com/malditochecho/lasalle_professional_integration_project
+
+## Deployment
+
+### Netlify
+
+https://lasalle-movies.netlify.app
+
+## Project management
+
+### Trello board
+
+https://trello.com/b/hNRUN30j/professional-integration-project
