@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useApi } from '@/composables/api.js'
+import MoviePoster from '@/components/MoviePoster.vue'
 
 // decide what to fetch from the props
 const props = defineProps(['type'])
@@ -10,11 +11,11 @@ onMounted(() => {
   switch (props.type) {
     case 'upcoming':
       sectionTitle.value = 'Now in theaters'
-      url.value = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
+      url.value = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=CA'
       break
     case 'playing':
       sectionTitle.value = 'Upcoming movies'
-      url.value = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1'
+      url.value = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=CA'
       break
   }
 })
@@ -23,7 +24,13 @@ onMounted(() => {
 const movies = ref([])
 onMounted(async () => {
   const { data, error } = await useApi(url.value)
-  error.value ? console.log(error.value) : (movies.value = data.value.results)
+  error.value
+    ? console.log(error.value)
+    : (movies.value = data.value.results
+        ?.sort((a, b) => {
+          return b.popularity - a.popularity
+        })
+        .slice(0, 4))
 })
 </script>
 
@@ -37,12 +44,11 @@ onMounted(async () => {
         :to="{ name: 'moviedetail', params: { id: movie.id } }"
         class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
       >
-        <img
-          :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-          alt="movie cover"
-          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
-        />
+        <MoviePoster :path="movie.poster_path" />
       </RouterLink>
     </div>
+    <RouterLink to="/lists/#">
+      <p class="mt-4 text-right font-medium uppercase text-blue-500">see more →</p>
+    </RouterLink>
   </div>
 </template>
