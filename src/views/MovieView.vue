@@ -28,6 +28,7 @@ onMounted(async () => {
       <div class="col-span-12 sm:col-span-6">
         <MoviePoster
           :path="movie.poster_path"
+          quality="original"
           class="col-span-12 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
         />
       </div>
