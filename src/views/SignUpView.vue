@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
+import LineDivider from '@/components/LineDivider.vue'
 
 // pinia
 const authStore = useAuthStore()
@@ -69,7 +70,7 @@ const registerWithEmailAndPassword = async () => {
       </svg>
       Sign up with Google
     </button>
-    <div class="my-4 border-b"></div>
+    <LineDivider />
     Already have an account?
     <span class="font-medium text-blue-500 underline">
       <RouterLink to="/signin"> Sign in </RouterLink>

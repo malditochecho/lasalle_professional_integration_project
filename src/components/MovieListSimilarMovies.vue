@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import MoviePoster from '@/components/MoviePoster.vue'
+import LineDivider from '@/components/LineDivider.vue'
 import { useApi } from '@/composables/api.js'
 
 const props = defineProps(['movieId'])
@@ -20,7 +21,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="movies.length">
-    <div class="col-span-12 mb-8 mt-12 border-b md:block"></div>
+    <LineDivider />
     <h2 class="col-span-12 mb-2 text-xl font-bold">Similar movies</h2>
     <div class="grid grid-cols-12 gap-5">
       <RouterLink
