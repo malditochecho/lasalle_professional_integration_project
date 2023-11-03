@@ -28,7 +28,7 @@ onMounted(async () => {
         v-for="movie in movies"
         :key="movie.id"
         :to="{ name: 'moviedetail', params: { id: movie.id } }"
-        class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+        class="col-span-6 aspect-[2/3] object-cover sm:col-span-3 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
       >
         <MoviePoster :path="movie.poster_path" quality="w342" />
       </RouterLink>

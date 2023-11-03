@@ -10,7 +10,7 @@ const url = ref('')
 onMounted(() => {
   switch (props.type) {
     case 'upcoming':
-      sectionTitle.value = 'Now in theaters'
+      sectionTitle.value = 'Playing now in theaters'
       url.value = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=CA'
       break
     case 'playing':
@@ -47,7 +47,7 @@ onMounted(async () => {
         <MoviePoster :path="movie.poster_path" quality="w342" />
       </RouterLink>
     </div>
-    <RouterLink to="/lists/#">
+    <RouterLink :to="`/list/${props.type}`">
       <p class="mt-4 text-right font-medium uppercase text-blue-500">see more →</p>
     </RouterLink>
   </div>

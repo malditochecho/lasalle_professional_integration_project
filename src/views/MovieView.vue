@@ -14,10 +14,6 @@ url.value = `https://api.themoviedb.org/3/movie/${route.params.id}`
 onMounted(async () => {
   const { data, error } = await useApi(url.value)
   error.value ? console.log(error.value) : (movie.value = data.value)
-
-  // print console
-  let str = JSON.stringify(movie.value, null, 4)
-  console.log(str)
 })
 </script>
 
@@ -46,7 +42,17 @@ onMounted(async () => {
         </h3>
         <!-- genres -->
         <div class="mb-8 mt-2 flex space-x-2">
-          <PillGenre v-for="genre in movie?.genres" :key="genre.id" :genre="genre" />
+          <RouterLink
+            v-for="genre in movie?.genres"
+            :key="genre.id"
+            :to="{
+              name: 'movielist',
+              params: { name: genre.name.toLowerCase().replace(/ /g, '') }
+            }"
+            class="col-span-3 sm:col-span-2 md:col-span-1"
+          >
+            <PillGenre :genre="genre" />
+          </RouterLink>
         </div>
         <!-- overview -->
         <div class="mb-8">

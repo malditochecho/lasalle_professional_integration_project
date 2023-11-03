@@ -7,10 +7,9 @@ const props = defineProps({
     required: true
   },
   quality: {
-    validator(value) {
+    validator: (value) => {
       return ['w92', 'w154', 'w185', 'w342', 'w500', 'w780', 'original'].includes(value)
     },
-    type: String,
     required: true
   }
 })
