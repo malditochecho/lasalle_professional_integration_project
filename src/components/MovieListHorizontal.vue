@@ -31,13 +31,18 @@ onMounted(async () => {
   <div class="container col-span-12 mt-8 md:mt-0">
     <h2 class="mb-4 text-4xl font-bold">{{ sectionTitle }}</h2>
     <div class="grid grid-cols-12 gap-5">
-      <img
+      <RouterLink
         v-for="movie in movies"
-        :key="movie"
-        :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-        alt="movie cover"
+        :key="movie.id"
+        :to="{ name: 'moviedetail', params: { id: movie.id } }"
         class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
-      />
+      >
+        <img
+          :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
+          alt="movie cover"
+          class="col-span-6 aspect-[2/3] object-cover sm:col-span-6 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3"
+        />
+      </RouterLink>
     </div>
   </div>
 </template>
