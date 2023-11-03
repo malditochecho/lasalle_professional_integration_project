@@ -19,7 +19,7 @@ onMounted(() => {
   <div class="flex min-h-screen flex-col">
     <TheHeader />
     <div class="mt-0 flex-grow md:mt-8">
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component }" :key="$route.fullPath">
         <Transition name="fade" mode="out-in">
           <component :is="Component" />
         </Transition>
